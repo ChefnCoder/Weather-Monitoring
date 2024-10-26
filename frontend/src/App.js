@@ -18,7 +18,7 @@ const App = () => {
         setLoading(true);
         const response = await axios.get('http://localhost:5000/api/weather/summaries');
         setWeatherSummaries(response.data);
-      } catch (err) {
+      } catch (error) {
         setError('Failed to fetch weather summaries');
       } finally {
         setLoading(false);
