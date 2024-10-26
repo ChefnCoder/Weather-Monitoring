@@ -10,7 +10,7 @@ const App = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [newAlert, setNewAlert] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
-  const [error, setError] = useState(null);
+  //const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchWeatherSummaries = async () => {
@@ -19,7 +19,7 @@ const App = () => {
         const response = await axios.get('http://localhost:5000/api/weather/summaries');
         setWeatherSummaries(response.data);
       } catch (error) {
-        setError('Failed to fetch weather summaries');
+        console.log('Failed to fetch weather summaries');
       } finally {
         setLoading(false);
       }
