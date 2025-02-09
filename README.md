@@ -32,7 +32,7 @@ The **Weather Monitoring System** is a real-time application that retrieves weat
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/your-username/weather-monitoring-system.git
+   git clone https://github.com/ChefnCoder/weather-monitoring-system.git
    cd weather-monitoring-system
    ```
 
