@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import './App.css';
-
+const BE_URL = "https://weather-monitoring-31gr.onrender.com";
+const API_URL = `${BE_URL}/api/weather`
 const App = () => {
   const [weatherSummaries, setWeatherSummaries] = useState([]);
   const [alerts, setAlerts] = useState([]);
@@ -16,7 +17,7 @@ const App = () => {
     const fetchWeatherSummaries = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('http://localhost:5000/api/weather/summaries');
+        const response = await axios.get(`${API_URL}/summaries`);
         setWeatherSummaries(response.data);
       } catch (error) {
         console.log('Failed to fetch weather summaries');
@@ -30,7 +31,7 @@ const App = () => {
   useEffect(() => {
     const fetchAlerts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/weather/alerts');
+        const response = await axios.get(`${API_URL}/alerts`);
         const latestAlert = response.data[0];
         if (latestAlert && (!alerts.length || latestAlert._id !== alerts[0]._id)) {
           setNewAlert(latestAlert);
