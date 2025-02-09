@@ -3,6 +3,11 @@
 ## Overview
 The **Weather Monitoring System** is a real-time application that retrieves weather data from the OpenWeatherMap API, processes and stores the data, and provides summarized insights using rollups and aggregates. The system supports configurable alert thresholds, daily summaries, and visualization of weather trends for major Indian cities.
 
+### 🌤️ Live Demo Screenshots
+![Weather Monitoring Dashboard](frontend/public/image1.png)
+![Weather Trends Visualization](frontend/public/image2.png)
+
+
 ## Features
 - **Real-Time Weather Data Retrieval**: Fetches weather data for Delhi, Mumbai, Chennai, Bangalore, Kolkata, and Hyderabad at a configurable interval.
 - **Daily Summaries**: Aggregates daily data with insights including average, maximum, and minimum temperatures, and the dominant weather condition.
