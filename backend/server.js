@@ -12,7 +12,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ["https://weather-monitoring-31gr.onrender.com/", "https://personal-weather-monitor.netlify.app"],
+  origin: ["https://weather-monitoring-31gr.onrender.com/", "https://personal-weather-monitor.netlify.app","http://localhost:3000"],
   credentials: true  // Allow cookies/auth headers if needed
 }));
 app.use(express.json());

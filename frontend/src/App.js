@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import './App.css';
-const BE_URL = "https://weather-monitoring-31gr.onrender.com";
-const API_URL = `${BE_URL}/api/weather`
+const API_URL = "https://weather-monitoring-31gr.onrender.com/api/weather";
 const App = () => {
   const [weatherSummaries, setWeatherSummaries] = useState([]);
   const [alerts, setAlerts] = useState([]);
