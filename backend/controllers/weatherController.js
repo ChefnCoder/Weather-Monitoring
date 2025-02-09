@@ -8,7 +8,7 @@ const convertKelvinToCelsius = (kelvin) => kelvin - 273.15;
 
 // User-configurable thresholds for triggering alerts
 const userThresholds = {
-  temperature: 20  // Example: Alert if temperature exceeds 35°C
+  temperature: 25  // Example: Alert if temperature exceeds 35°C
 };
 
 // Function to check if the weather data breaches user-configurable thresholds
@@ -44,29 +44,6 @@ const checkAlertConditions = async (weather) => {
   lastTemperatures[city] = currentTemp;
 };
 
-
-
-
-// Fetch weather data from OpenWeatherMap API for a given city
-// const fetchWeatherData = async (city) => {
-//   const apiKey = process.env.OPENWEATHERMAP_API_KEY;
-//   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
-
-//   try {
-//     const response = await axios.get(url);
-//     const data = response.data;
-
-//     return {
-//       city: data.name,
-//       temperature: convertKelvinToCelsius(data.main.temp),
-//       feels_like: convertKelvinToCelsius(data.main.feels_like),
-//       condition: data.weather[0].main,
-//       timestamp: new Date(data.dt * 1000),  // Convert Unix timestamp to JavaScript Date
-//     };
-//   } catch (error) {
-//     throw new Error('Error fetching weather data');
-//   }
-// };
 const fetchWeatherData = async (city) => {
   const apiKey = process.env.OPENWEATHERMAP_API_KEY;
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
@@ -115,47 +92,6 @@ const getWeatherForCities = async () => {
   }
 };
 
-// Calculate daily weather summary for a specific city
-// Backend controller
-// const calculateDailySummary = async (city) => {
-//   const today = new Date();
-//   today.setHours(0, 0, 0, 0);
-//   const tomorrow = new Date(today);
-//   tomorrow.setDate(today.getDate() + 1);
-
-//   const weatherData = await WeatherData.find({
-//     city,
-//     timestamp: { $gte: today, $lt: tomorrow }
-//   });
-
-//   if (weatherData.length === 0) {
-//     console.log(`No weather data found for ${city} today.`);
-//     return null;
-//   }
-
-//   const avgTemp = weatherData.reduce((sum, entry) => sum + entry.temperature, 0) / weatherData.length;
-//   const maxTemp = Math.max(...weatherData.map(entry => entry.temperature));
-//   const minTemp = Math.min(...weatherData.map(entry => entry.temperature));
-
-//   // Determine the dominant weather condition and icon
-//   const conditions = weatherData.map(entry => ({ condition: entry.condition, icon: entry.icon }));
-//   const dominantCondition = conditions
-//     .map(c => c.condition)
-//     .sort((a, b) =>
-//       conditions.filter(c => c.condition === a).length - conditions.filter(c => c.condition === b).length
-//     )
-//     .pop();
-//   return {
-//     city,
-//     avg_temp: avgTemp,
-//     max_temp: maxTemp,
-//     min_temp: minTemp,
-//     dominant_condition: dominantCondition,
-//     date: today
-//   };
-// };
-
-// controllers/weatherController.js
 
 const calculateDailySummary = async (city) => {
   const today = new Date();
