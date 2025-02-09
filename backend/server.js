@@ -11,7 +11,10 @@ dotenv.config();  // Load environment variables from .env
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ["https://weather-monitoring-31gr.onrender.com/", "https://personal-weather-monitor.netlify.app"],
+  credentials: true  // Allow cookies/auth headers if needed
+}));
 app.use(express.json());
 app.use('/api/weather', weatherRoutes);  // Ensure this is correctly set up
 
