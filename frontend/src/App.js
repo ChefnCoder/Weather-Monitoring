@@ -102,7 +102,10 @@ const App = () => {
               <p className="text-lg text-gray-700 flex items-center">
                 Dominant Condition: <span className="ml-2 font-medium text-gray-600">{summary.dominant_condition}</span>
               </p>
-              <p className="text-gray-500 text-sm mt-3">{new Date(summary.date).toLocaleDateString()}</p>
+              <p className="text-gray-500 text-sm mt-3">
+                {new Date().toLocaleDateString()}
+              </p>
+
             </div>
           ))}
         </div>
