@@ -12,26 +12,26 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ["https://weather-monitoring-31gr.onrender.com/", "https://personal-weather-monitor.netlify.app","http://localhost:3000"],
+  origin: ["https://weather-monitoring-31gr.onrender.com/", "https://personal-weather-monitor.netlify.app","http://localhost:3001"],
   credentials: true  // Allow cookies/auth headers if needed
 }));
 app.use(express.json());
 app.use('/api/weather', weatherRoutes);  // Ensure this is correctly set up
 
-// Connect to MongoDB
+// Connect to MongoDB DataBase
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connection successful'))
   .catch((err) => console.error('MongoDB connection error:', err));
 
 // Schedule a job to run every 5 minutes to fetch and store weather data
-cron.schedule('*/5 * * * *', () => {
+cron.schedule('* * * * *', () => {
   console.log('Fetching weather data for cities every 5 minutes...');
   getWeatherForCities();  // Call the function from the controller to fetch data
 });
 
 
 // Schedule a job to run at midnight to calculate and store daily summaries
-cron.schedule('0 0 * * *', async () => { 
+cron.schedule('* * * * *', async () => { 
   console.log('Calculating and saving daily weather summaries...');
   
   try {

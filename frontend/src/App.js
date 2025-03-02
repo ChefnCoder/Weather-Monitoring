@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import './App.css';
-const API_URL = "https://weather-monitoring-31gr.onrender.com/api/weather";
+const API_URL = "http://localhost:5000/api/weather";
 const App = () => {
   const [weatherSummaries, setWeatherSummaries] = useState([]);
   const [alerts, setAlerts] = useState([]);
@@ -103,7 +103,8 @@ const App = () => {
                 Dominant Condition: <span className="ml-2 font-medium text-gray-600">{summary.dominant_condition}</span>
               </p>
               <p className="text-gray-500 text-sm mt-3">
-                {new Date().toLocaleDateString()}
+                {/* {new Date().toLocaleDateString()} */}
+                {summary.date}
               </p>
 
             </div>
